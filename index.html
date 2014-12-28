@@ -1,0 +1,120 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+		<title>BeardGames</title>
+		<link rel="icon" href="favicon.ico" type="image/x-icon"/>
+		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
+	</head>
+	<body>		
+		<style>
+			body {
+				background-color: #644968;
+				background-image: url('clouds-background.jpg');
+				background-repeat: repeat-x;
+				padding: 0px;
+				margin: 0px;
+			}
+			#logo {
+				width: 980px;
+				margin: 0 auto;
+				padding-top: 50px;
+				z-index: 15;
+				position: relative;
+				display: block;
+			}
+			#clouds {
+				position: absolute;
+				top: 0px;
+				left: 0px;
+				z-index: 5;
+				width: 100%;
+				height: 500px;
+				background-image: url('clouds.png');
+				background-position: 0px 0px;
+				background-repeat: repeat-x;
+				background-size: cover;
+				-webkit-animation:clouds 120s linear infinite;
+				-moz-animation:clouds 120s linear infinite;
+				-o-animation:clouds 120s linear infinite;
+			}
+
+			#top-clouds {
+				position: absolute;
+				top: 0px;
+				left: 0px;
+				z-index: 10;
+				width: 100%;
+				height: 500px;
+				background-image: url('top-clouds.png');
+				background-position: 0px 0px;
+				background-repeat: repeat-x;
+				background-size: cover;
+				-webkit-animation:top-clouds 40s linear infinite;
+				-moz-animation:top-clouds 40s linear infinite;
+				-o-animation:top-clouds 40s linear infinite;
+			}
+
+			@-webkit-keyframes clouds {
+				0% {
+					left:0
+				}
+			
+				100% {
+					background-position: -2128px 0px
+				}
+			}
+
+			@-moz-keyframes clouds {
+				0% {
+					left:0
+				}
+			
+				100% {
+					background-position: -2128px 0px
+				}
+			}
+
+			@-webkit-keyframes top-clouds {
+				0% {
+					left:0
+				}
+			
+				100% {
+					background-position: -2128px 0px
+				}
+			}
+
+			@-moz-keyframes top-clouds {
+				0% {
+					left:0
+				}
+			
+				100% {
+					background-position: -2128px 0px
+				}
+			}
+		</style>
+		<div id="clouds"></div>
+		<div id="top-clouds"></div>
+		<img id="logo" src="logo-soon.png"/>
+		<script src="jquery.js"></script>
+		<script>
+			/*$(function() {
+				animateClouds();
+				animateTopClouds();
+			});
+
+			function animateClouds() {
+				$("#clouds").css("background-position", "0px").animate({
+					"background-position": "-2128px"
+				},360000, 'linear', animateClouds)
+			}
+
+			function animateTopClouds() {
+				$("#top-clouds").css("background-position", "0px").animate({
+					"background-position": "-2128px"
+				},120000, 'linear', animateTopClouds)
+			}*/
+		</script>
+	</body>
+</html>

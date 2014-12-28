@@ -1,0 +1,41 @@
+<modification>
+	<id>Notify Shipped with Tracking info - OpenCart 1.5.x core file modifications</id>
+	<version>1.5.x</version>
+	<vqmver>1.0.0</vqmver>
+	<author>mail@torcu.com</author>
+	<?php echo $footer; ?>
+	<file name="admin/view/template/sale/order_info.tpl">
+		<operation>
+			<search position="replace"><![CDATA[name="order_status_id"]]></search>
+			<add><![CDATA[name="order_status_id" id="order_status_id_selector"]]></add>
+		</operation>
+	</file>
+	<file name="admin/view/template/sale/order_info.tpl">
+		<operation>
+			<search position="replace"><![CDATA[textarea name="comment"]]></search>
+			<add><![CDATA[textarea name="comment" id="comment"]]></add>
+		</operation>
+	</file>
+	<file name="admin/view/template/sale/order_info.tpl">
+		<operation>
+			<search position="before" offset="1"><![CDATA[<td><?php echo $entry_order_status; ?></td>]]></search>
+			<add><![CDATA[<tr><td><?php echo "Tracking Number:" ?></td><td><input type="text" value="" id="tracking_number"></td></tr>]]></add>
+		</operation>
+	</file>
+	<file name="admin/view/template/sale/order_info.tpl">
+		<operation>
+			<search position="before"><![CDATA[<?php echo $footer; ?>]]></search>
+			<add><![CDATA[<script type="text/javascript"><!--
+			$('#tracking_number').change(function() {
+				$("#order_status_id_selector").val("3");
+				$('input[name=notify]').attr('checked', true);
+				$("#comment").val("Er beställning är på väg! Er order har nu skickats från vårt lager.\n\n");
+				//$("#comment").val($("#comment").val()+"If your order has been split into several packages we will send you email notification once the other packages have been shipped.\n\n");
+				$("#comment").val($("#comment").val()+"Kollinummer för denna försändelse: "+$("#tracking_number").val()+". Det kan ta upp till 2 arbetsdagar innan numret är sökbart.\n\n");
+				$("#comment").val($("#comment").val()+"Du kan spåra försändelsen här: http://www.servicepointinrikes.se/Sp%C3%A5rapaket/tabid/495/queryConsNo/"+$("#tracking_number").val()+'/Default.aspx'); 
+			});
+			//--></script>
+			]]></add>
+		</operation>
+	</file>
+</modification>

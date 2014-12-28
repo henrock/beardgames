@@ -1,0 +1,142 @@
+<modification>
+    <id>Mobile Assistant Connector</id>
+    <name>Mobile Assistant Connector</name>
+    <version>1.0.1</version>
+    <vqmver>2.4</vqmver>
+    <author>eMagicOne</author>
+
+    <!-- checked -->
+    <file path="catalog/model/checkout/order.php">
+        <operation info="Create new order (frontend)">
+            <search position="after"><![CDATA[
+            $order_id = $this->db->getLastId();
+            ]]></search>
+
+            <add><![CDATA[
+                $ctrl_url = DIR_APPLICATION.'/controller/module/mobileassistantconnector.php';
+                //$ctrl_url = DIR_APPLICATION.'/../catalog/controller/module/mobileassistantconnector.php';
+
+                if(file_exists($ctrl_url)) {
+                    require_once($ctrl_url);
+
+                    $class = new ControllerModuleMobileAssistantConnector($this->registry);
+
+                    $class->push_new_order($order_id);
+                }
+            ]]></add>
+        </operation>
+    </file>
+
+    <!-- checked -->
+    <file path="admin/model/sale/order.php">
+        <operation info="Create new order (admin)">
+            <search position="before"><![CDATA[
+            // Update order total
+            ]]></search>
+
+            <add><![CDATA[
+                $ctrl_url = DIR_APPLICATION.'/../catalog/controller/module/mobileassistantconnector.php';
+
+                if(file_exists($ctrl_url)) {
+                    require_once($ctrl_url);
+
+                    $class = new ControllerModuleMobileAssistantConnector($this->registry);
+
+                    $class->push_new_order_156x($order_id, $total);
+                }
+            ]]></add>
+        </operation>
+    </file>
+
+
+    <!-- checked -->
+    <file path="admin/model/sale/order.php">
+        <operation info="Change order status (Edit)">
+
+            <search position="after"><![CDATA[
+            public function editOrder($order_id, $data) {
+            ]]></search>
+
+            <add><![CDATA[
+                $ctrl_url = DIR_APPLICATION.'/../catalog/controller/module/mobileassistantconnector.php';
+
+                if(file_exists($ctrl_url)) {
+                    require_once($ctrl_url);
+
+                    $class = new ControllerModuleMobileAssistantConnector($this->registry);
+
+                    $class->push_change_status_156x($order_id, $data);
+                }
+            ]]></add>
+        </operation>
+    </file>
+
+
+    <!-- checked -->
+    <file path="admin/model/sale/order.php">
+        <operation info="Change order status (View)">
+
+            <search position="after"><![CDATA[
+            public function addOrderHistory($order_id, $data) {
+            ]]></search>
+
+            <add><![CDATA[
+                $ctrl_url = DIR_APPLICATION.'/../catalog/controller/module/mobileassistantconnector.php';
+
+                if(file_exists($ctrl_url)) {
+                    require_once($ctrl_url);
+
+                    $class = new ControllerModuleMobileAssistantConnector($this->registry);
+
+                    $class->push_change_status_156x($order_id, $data);
+                }
+            ]]></add>
+        </operation>
+    </file>
+
+
+    <!-- checked -->
+    <file path="catalog/model/account/customer.php">
+        <operation info="Create new customer">
+
+            <search position="after"><![CDATA[
+            $customer_id = $this->db->getLastId();
+            ]]></search>
+
+            <add><![CDATA[
+                $ctrl_url = DIR_APPLICATION.'/controller/module/mobileassistantconnector.php';
+
+                if(file_exists($ctrl_url)) {
+                    require_once($ctrl_url);
+
+                    $class = new ControllerModuleMobileAssistantConnector($this->registry);
+
+                    $class->push_new_customer($customer_id);
+                }
+            ]]></add>
+        </operation>
+    </file>
+
+
+    <file path="admin/model/sale/customer.php">
+        <operation info="Create new customer (admin)">
+
+            <search position="after"><![CDATA[
+            $customer_id = $this->db->getLastId();
+            ]]></search>
+
+            <add><![CDATA[
+                //$ctrl_url = DIR_APPLICATION.'/controller/module/mobileassistantconnector.php';
+                $ctrl_url = DIR_APPLICATION.'/../catalog/controller/module/mobileassistantconnector.php';
+
+                if(file_exists($ctrl_url)) {
+                    require_once($ctrl_url);
+
+                    $class = new ControllerModuleMobileAssistantConnector($this->registry);
+
+                    $class->push_new_customer_156x($customer_id);
+                }
+            ]]></add>
+        </operation>
+    </file>
+</modification>

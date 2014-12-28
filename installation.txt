@@ -1,0 +1,26 @@
+Mobile Assistant Connector increases the functionality of the OpenCart Mobile Assistant and it is recommended to be installed and used with the OpenCart Mobile Assistant. 
+
+
+
+Mobile Assistant Connector installation instruction:
+
+1. Connect to FTP
+2. Locate Your Shop
+3. Upload all files to the root directory of your shop
+4. In the administrator panel, go to: System > Users > User Groups
+5. Edit the administrator user group and add permissions to: module/mobileassistantconnector
+6. Save the user group permissions
+7. Install "Opencart Mobile Connector"
+
+Please note,  for OpenCart version of 1.5.6.x you should have installed vQmod. 
+To get detailed information about this option follow this link: http://docs.opencart.com/vqmod.
+
+
+
+Use this link for downloading application:
+https://play.google.com/store/apps/details?id=com.OpenCart.MobileAssistant
+
+
+
+Full installation instruction:
+https://sites.google.com/a/emagicone.com/mobile-store-assistant-help/4-opencart-mobile-assistant-installation-instructions

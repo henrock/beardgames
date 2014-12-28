@@ -1,0 +1,6 @@
+mobile-bridge.*
+php.ini
+config.php
+
+image/cache/data/*
+image/data/produkter/*
